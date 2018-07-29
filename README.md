@@ -26,11 +26,13 @@ $ docker-compose up
 4.  Visit http://localhost:8000 to view the site, or to complete the 5 minute installation
     if this is a new project.
 
-  <aside class="notice">
-  You can close and restart docker and the containers, and the database will persist.
-  Running
-  ```sh
-  $ docker-compose down --volumes
-  ```
-  will remove the database
-  </aside>
+### Notice
+
+_You can close and restart docker and the containers, and the database will persist.
+Running_
+
+```sh
+$ docker-compose down --volumes
+```
+
+_**will remove the database**_
