@@ -66,3 +66,4 @@ _**will remove the database**_
 - Wordpress Docker Image: https://hub.docker.com/_/wordpress/
 - MySQL Docker Image: https://hub.docker.com/_/mysql/
 - Docker Volumes: https://docs.docker.com/storage/volumes/
+- Deployment: http://www.chris-kelly.net/2016/08/04/docker-meet-wordpress-a-production-deploy-for-the-average-person/
