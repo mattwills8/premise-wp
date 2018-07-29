@@ -11,10 +11,27 @@ services:
        MYSQL_ROOT_PASSWORD_FILE: /run/secrets/premise_wp_mysql_root
        MYSQL_USER_FILE: /run/secrets/premise_wp_mysql_user
        MYSQL_PASSWORD_FILE: /run/secrets/premise_wp_mysql_pass
+     networks:
+       - back
      secrets:
        - premise_wp_mysql_root
        - premise_wp_mysql_user
        - premise_wp_mysql_pass
+
+   phpmyadmin:
+    depends_on:
+      - db
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/premise_wp_mysql_root
+    networks:
+      - back
+    secrets:
+      - premise_wp_mysql_root
 
    wordpress:
      depends_on:
@@ -22,15 +39,22 @@ services:
      image: wordpress:latest
      ports:
        - "8000:80"
+     volumes:
+       - ./wp-content:/var/www/html/wp-content
      restart: always
      environment:
        WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_NAME: premise-wp
        WORDPRESS_DB_USER_FILE: /run/secrets/premise_wp_mysql_user
        WORDPRESS_DB_PASSWORD_FILE: /run/secrets/premise_wp_mysql_pass
+     networks:
+       - back
      secrets:
        - premise_wp_mysql_user
        - premise_wp_mysql_pass
+
+networks:
+  back:
 
 volumes:
   db_data:
