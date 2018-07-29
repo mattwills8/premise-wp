@@ -10,9 +10,9 @@ needing only to install docker.
     Mac: https://store.docker.com/editions/community/docker-ce-desktop-mac
     Windows: https://store.docker.com/editions/community/docker-ce-desktop-windows
 
-2.  If it's a new project, create a .secrets file in the root directory and export
-    the relevant environment variables (see docker-compose).
-    Otherwise, request the .secrets from the project manager and store it in the root directory.
+2.  If it's a new project, create a secrets/ directory in the root and
+    add a new .txt file there for each relevant environment variable (see docker-compose).
+    Otherwise, request the secrets/ from the project manager and store it in the root.
 
 3.  cd to the project directory and run docker-compose to fetch and start the images.
 
